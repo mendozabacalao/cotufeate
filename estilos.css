@@ -8,64 +8,119 @@ html {
 }
 
 body {
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Proxima Nova', 'Source Sans Pro', 'Roboto', sans-serif;
     margin: 0;
+    background-color: #002;
 }
 
 h1 {
-    font-size: 3.5em;
+    font-weight: bold;
+    font-size: 10vmin;
 }
 
 h2 {
-    font-size: 2.7em;
+    font-size: 6vmin;
 }
 
 h3 {
-    font-size: 2em;
+    font-weight: bold;
+    font-size: 10vmin;
 }
 
-h3 {
-    font-size: 4em;
+h4 {
+    font-weight: bold;
+    font-size: 5vmin;
 }
 
 p {
-    font-size: 1.25em;
+    font-size: 3vmin;
+}
+
+a {
+    text-decoration: none;
+    color: #FFF;
+}
+
+a:hover {
+    text-decoration: none;
+    color: #F60;
 }
 
 button {
-    font-size: 1.25em;
+    font-family: 'Proxima Nova', 'Source Sans Pro', 'Roboto', sans-serif;
+    font-size: 4vmin;
     font-weight: bold;
-    padding: 10px 30px;
-    border-radius: 10px;
+    padding: 2vmin 3vmin;
+    border-radius: 15px;
     border: 2px solid rgba(0, 0, 0, 0.3);
     box-shadow: 2px 2px 10px rgba(0, 0, 0, 10);
-    color: rgb(255, 255, 255);
-    background-color: rgb(75, 8, 8);
+    color: #FFF;
+    background-color: #910;
 }
 
 button:hover {
-    background-color: rgb(5, 5, 5);
+    background-color: #F60;
+    cursor:pointer;
 }
+
+button a {
+    text-decoration: none;
+    color: #FFF;
+}
+
+button a:hover {
+    color: #FFF;
+}
+
 
 .container {
     max-width: 1400px;
-    margin: auto;
+    /* margin: auto; */
 }
 
 .color-acento {
-    color: rgb(75, 8, 8);
+    color: #FFF;
 }
 
+.emphasis {
+    color: #F60;
+    font-weight: bold;
+}
+
+.bold {
+    font-weight: bold;
+}
+
+.italic {
+    font-style: italic;
+}
+
+
+/* Header */
+
 header {
-    background-color: rgb(245, 245, 245);
+    display: flex-inline;
+    background-color: #002;
 }
 
 header .logo {
-    margin: 0;
-    padding: 25px 30px;
-    font-weight: bold;
-    color: rgb(101, 16, 16);
-    font-size: 1.6em;
+    position: relative;
+    max-width: 100%;
+}
+
+header .logo img.logo-hover {
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    object-fit: scale-down;
+    opacity: 0;
+    transition: opacity .2s ease;
+}
+
+.logo:hover img.logo-hover {
+    opacity: 1;
 }
 
 header .container {
@@ -74,61 +129,205 @@ header .container {
     align-items: center;
 }
 
+header button {
+    display: none;
+}
+
 header nav {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
+    padding-right: 2vw;
+    margin-top: 2vw;
+    margin-bottom: 2vw;
     text-align: center;
-    padding-bottom: 25px;
 }
 
 header a {
-    padding: 5px 12px;
+    padding: 0 1vw;
     text-decoration: none;
     font-weight: bold;
-    color: rgb(101, 16, 16);
+    color: #FFF;
 }
 
 header a:hover {
-    color: rgb(9, 9, 9);
+    color: #F60;
 }
 
-#hero {
+header a:active {
+    text-decoration: underline;
+}
+
+footer  /* nuevo  */ {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #022144;
+    color: #ffffff;
+    margin: -0.1rem 0;
+    padding: 2rem 0;
+    text-align: center; }
+
+
+
+
+@media only screen and (min-width: 800px) {
+    header {
+        position: sticky;
+        top: 0;
+        width: 100%;
+        z-index: 10;
+    }
+
+    header .container {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    header nav {
+        margin-top: 0;
+        margin-bottom: 0;
+    }
+}
+
+@media only screen and (max-width: 640px) {
+    header nav {
+        display: flex;
+        flex-direction: column;
+        height: 100vh;
+        margin-bottom: 4vmin;
+        padding: 0;
+        font-size: 5vmin;
+        text-align: center;
+    }
+
+    header nav a {
+        padding-top: 4vh;
+        padding-bottom: 4vh;
+        padding-left: 10vmin;
+        padding-right: 10vmin;
+        margin-top: 1vmin;
+        margin-bottom: 1vmin;
+        text-decoration: none;
+        font-weight: bold;
+        color: #FFF;
+        background-color: #003;
+        border-radius: 15px;
+    }
+
+    header nav a:active {
+        background-color: #F60;
+        color: #002;
+        text-decoration: none;
+    }
+    
+}
+
+
+/* Home -> Background Video */
+
+#film {
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-start;
     text-align: center;
+    padding-top: 10vmin;
+    color: #FFF;
+    text-shadow: 1px 1px 4px black;
     flex-direction: column;
-    height: 90vh;
+    height: 100vh;
     background-image: linear-gradient(0deg,
-            rgb(94, 19, 19),
-            rgba(20, 15, 15, 0.5)), url("hero.png");
+            rgba(0, 0, 34, 0.1),
+            rgba(0, 0, 34, 1));
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center center;
 }
 
-#hero h1 {
-    color: (101, 16, 16);
+#background-video {
+    width: 100vw;
+    height: 100vh;
+    object-fit: cover;
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    z-index: -3;
 }
 
-#uno button {
-    font-size: 1.75em;
-}
+
+/* Home -> Quiénes Somos */
 
 #QuienesSomos .container {
+    display: flex;
+    justify-content: space-evenly;
     text-align: center;
-    padding: 200px 12px;
+    padding: 20vmin 2vmin 0vmin;
+    color: #FFF;
+    text-shadow: 1px 1px 4px black;
+    background-image: linear-gradient(0deg,
+            rgba(0, 0, 34, 1),
+            rgba(0, 0, 34, 0.1));
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
 }
 
+.quienessomos {
+    font-size: 4vmin;
+}
+
+#QuienesSomos .texto {
+    width: 60%;
+    max-width: 800px;
+    text-align: initial;
+    padding: 0 2%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    background-color: rgba(0, 0, 34, 0.8);
+    border-radius: 25px;
+}
+
+/* #QuienesSomos h2 {
+    /* margin-top: -50%;
+} */
+
+#QuienesSomos .img-container {
+    background-image: url("./img/uno.png");
+    background-size: cover;
+    background-position: center center;
+    width: 30%;
+    border-radius: 25px;
+
+}
+
+@media only screen and (max-width: 720px) {
+    #QuienesSomos .container {
+        justify-content: center;
+    }
+
+    #QuienesSomos .img-container {
+        display: none;
+    }
+
+    #QuienesSomos .texto {
+        width: 100%;
+        text-align: center;
+    }
+}
+
+/* Home -> Menú de navegación */
 
 #navegar {
-    background-color: rgb(94, 19, 19);
+    background-color: #002;
     color: rgb(255, 255, 255);
     text-align: center;
+    text-shadow: 1px 1px 4px black;
 }
 
 #navegar .container {
-    padding: 150px 12px;
+    padding: 10vmin 2vmin;
 }
 
 #navegar p {
@@ -138,111 +337,466 @@ header a:hover {
 #navegar .carta {
     background-position: center center;
     background-size: cover;
-    padding: 50px 0px;
-    margin: 30px;
+    padding: 5vmin 0;
+    margin: 7vmin;
     border-radius: 15px;
 }
 
 .carta:first-child {
     background-image: linear-gradient(0deg,
             rgba(0, 0, 0, 0.5),
-            rgba(0, 0, 0, 0.5)), url("Reseña.png");
+            rgba(0, 0, 0, 0.5)), url("./img/Reseña.png");
 
 }
 
 .carta:nth-child(2) {
     background-image: linear-gradient(0deg,
             rgba(0, 0, 0, 0.5),
-            rgba(0, 0, 0, 0.5)), url("posdcast.png");
+            rgba(0, 0, 0, 0.5)), url("./img/buscar.png");
 }
 
-.carta:nth-child(3) {
-    background-image: linear-gradient(0deg,
-            rgba(0, 0, 0, 0.5),
-            rgba(0, 0, 0, 0.5)), url("buscar.png");
+
+/* Buscar */
+
+.search-container input[type=text] {
+    font-family: 'Proxima Nova', 'Source Sans Pro', 'Roboto', sans-serif;
+    padding: 2.75vmin;
+    font-size: 3vmin;
+    border: none;
+    border-radius: 15px;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 10);
+  }
+
+.search-container button {
+    margin: 2vmin;
+  }
+
+
+/* Footer */
+
+footer {
+    display: flex;
+    padding: 10vmin 2vmin 14vmin;
+    background-color: #003;
+    text-shadow: 1px 1px 4px black;
 }
 
-.carta:nth-child(4) {
-    background-image: linear-gradient(0deg,
-            rgba(0, 0, 0, 0.5),
-            rgba(0, 0, 0, 0.5)), url("uno.png");
-
+footer .container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: flex-start;
 }
 
-#top10 {
+footer .logocontacto {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: flex-start;
+}
+
+
+
+.footertext {
+    position: relative;
+    text-align: left;
+    overflow-wrap: normal;
+}
+
+.footertext h6 {
+    color: #FFF;
+    font-size: 3vmin;
+    font-weight: normal;
+    line-height: 0;
+}
+
+.footertext a {
+    font-weight: bold;
+}
+
+/* footer .mapa {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: flex-start;
+} */
+
+footer #mapa {
+    border-radius: 25px;
+    margin-top: 3vmin;
+    margin-left: 15vmin;
+    height: 40vmin;
+    max-width: 70%;
+    background-color: #002;
+}
+
+@media only screen and (max-width: 800px) {
+    footer .container {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+}
+
+@media only screen and (max-width: 640px) {
+    footer {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    footer .logocontacto {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .footertext {
+        position: relative;
+        text-align: center;
+    }
+
+    #mapa {
+        display: none;
+    }
+}
+
+/* Registro.html */
+
+#registro {
     display: flex;
     align-items: center;
     justify-content: center;
     text-align: center;
+    color: #FFF;
+    text-shadow: 1px 1px 4px black;
     flex-direction: column;
-    height: 90vh;
-    background-image: linear-gradient 0deg,
-        rgb(94, 19, 19),
-        rgba(20, 15, 15, 0.5)
+    height: 100vh;
+    background-image: linear-gradient(0deg,
+            rgba(0, 0, 34, 0.25),
+            rgba(0, 0, 34, 1)), url("./img/matrixpill.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
 }
 
-#top10 h2 {
-    font-size: 5vw;
+form {
+    padding-left: 5vmax;
+    padding-right: 5vmax;
+    padding-top: 5vmin;
+    padding-bottom: 5vmin;
+    border-radius: 25px;
+    align-items: left;
+    text-align: left;
+    font-weight: normal;
+    background-color: rgba(0, 0, 34, 0.8);
 }
 
-footer {
-    background-color: rgb(245, 245, 245);
-}
 
-footer h4 {
-    margin: 0;
-    color: brown;
-}
+/* Reseñas.html */
 
-footer .container {
-    height: 15px;
-    display: flex;
-    justify-content: center;
-    align-items: flex-end;
-}
-
-@media (min-width: 720px){
-    header{
-        position: fixed;
-        width: 100%;
+@media (max-width:640px) {
+    .menu01 {
+        display: none;
     }
-    header .container{
-        flex-direction: row;
+}
+
+@media (min-width:640px) {
+    .resenas01 {
+        display: flex;
         justify-content: space-between;
+    }
+    .menu01 {
+        flex-basis: calc(30%);
+        min-width: 200px;
+        padding-bottom: 20vmin;
+    }
+    #peliculas {
+        flex-basis: calc(70%);
+        padding-bottom: 20vmin;
+    }
+    #peliculas h2 {
+        display: none;
+    }
+}
 
-    }
-}    
-    header nav{
-        flex-direction: row;
-        padding-bottom: 0;
-        padding-right: 20px;
-    }
-    #hero h1{
-        font-size: 5em;
-    }
-    #QuienesSomos .container{
+@media (min-width:800px) {
+    .resenas01 {
         display: flex;
-        justify-content: space-evenly;
+        justify-content: space-between;
     }
-    #QuienesSomos .texto{
-        width: 50%;
-        max-width: 600px;
-        text-align: initial;
-        padding-left: 50px;
+    .menu01 {
+        flex-basis: calc(25%);
+        min-width: 240px;
+        padding-bottom: 20vmin;
+    }
+    #peliculas {
+        flex-basis: calc(75%);
+        padding-bottom: 20vmin;
+    }
+    #peliculas h2 {
+        display: none;
+    }
+}
+
+#resenasmain {
+    margin-right: 3vmin;
+    margin-bottom: 20vmin;
+}
+
+main .resenas01 {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Navigation menu */
+
+.menu01 {
+    background-color: #002;
+    color: #FFF;
+    text-shadow: 1px 1px 4px black;
+    /* border-right: 2vmin solid #002; */
+}
+
+.menu01 #menutitle {
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background-color: #910;
+    margin: 0 3vmin 0;
+    padding: 0.1vmin;
+    border-radius: 25px;
+    /* border-bottom: 2vmin solid #002; */
+}
+
+.menu01 #menutitle:hover {
+    background-color: #F60;
+}
+
+a #menutitle:hover {
+    color: #FFF;
+}
+
+.sidenav {
+    flex-direction: column;
+    justify-content:flex-start;
+    align-items: initial;
+    text-align: initial;
+    list-style-position: inside;
+    list-style-type: none;
+    overflow-x: hidden; /* Disable horizontal scroll */
+    padding: 1vmin 5vmin;
+    background-color: #113;
+    border-radius: 25px;
+    margin: 3vmin 3vmin 0;
+  }
+
+.sidenav p {
+    font-size: 2.5vmin;
+    line-height: 100%;
+  }
+
+
+#peliculas {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: #FFF;
+    flex-direction: column;
+    background-color: #113;
+    border-radius: 25px;
+}
+
+#peliculas h2 {
+    text-shadow: 1px 1px 4px black;
+}
+
+#peliculas .container {
+    padding: 4vh 0vw;
+}
+
+#peliculas .resenas {
+    padding-left: 2vmin;
+    padding-right: 2vmin;
+    padding-top: 2vmin;
+    padding-bottom: 2vmin;
+    margin: 2vmin;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    flex-direction: row;
+    border-radius: 15px;
+    background-color: rgba(0, 0, 17, 0.7);
+}
+
+#peliculas .resenas:hover {
+    box-shadow: 1vmax 2vmin #F60;
+    transform: scale(1.1, 1.1);
+}
+
+figcaption {
+    font-size: medium;
+    /* white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: box;
+    line-clamp: 1;
+    box-orient: vertical; */
+}
+
+#peliculas img {
+    border-radius: 15px;
+}
+
+#peliculas .poster,
+figcaption {
+    width: 12.5vw;
+    min-width: 150px;
+}
+
+#peliculas a:hover {
+    font-weight: bold;
+}
+
+
+/* Páginas individuales de reseñas */
+
+@media (min-width:640px) {
+    .resenas01 {
         display: flex;
-        flex-direction: column;
-        justify-content: center;
+        justify-content: space-between;
     }
-
-    #QuienesSomos h2{
-        margin-top: 0px;
+    .menu01 {
+        flex-basis: calc(30%);
+        min-width: 200px;
+        padding-bottom: 10vmin;
     }
-
-    #QuienesSomos .img-container{
-        background-image: url("uno.png");
-        background-size: cover;
-        background-position: center center;
-        height: 600px;
-        width: 400px; 
+    .container_pelicula {
+        flex-basis: calc(70%);
+        padding-bottom: 10vmin;
     }
+}
 
+@media (min-width:800px) {
+    .resenas01 {
+        display: flex;
+        justify-content: space-between;
+    }
+    .menu01 {
+        flex-basis: calc(25%);
+        min-width: 240px;
+        padding-bottom: 10vmin;
+    }
+    .container_pelicula {
+        flex-basis: calc(75%);
+        padding-bottom: 10vmin;
+    }
+}
+
+.container_pelicula {
+    display: inline-flex;
+    align-items:flex-start;
+    justify-content:flex-start;
+    text-align: initial;
+    color: #FFF;
+    text-shadow: 1px 1px 4px black;
+    flex-direction: row;
+    max-width: 1400px;
+    background-image: linear-gradient(0deg,
+    rgba(17, 17, 55, 1), rgba(17, 17, 55, 1), rgba(17, 17, 55, 0.8), rgba(17, 17, 55, 0.6),
+    rgba(17, 17, 55, 0.4)), url("./stills/001metropolis_01.jpg");
+    background-color: #113;
+    background-repeat: no-repeat;
+    background-size: 100%;
+    background-position: center top;
+    border-radius: 25px;
+}
+
+
+.container_pelicula .container {
+    margin: 10vh 0vw;
+    padding: 0vh 0vw;
+    display: inline-flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    text-align: initial;
+}
+
+.container_pelicula img {
+    border-radius: 15px;
+}
+
+.container_pelicula .poster {
+    width: 20vw;
+    min-width: 150px;
+}
+
+.container_pelicula .resenas {
+    /* padding-left: 2vmin;
+    padding-right: 2vmin;
+    padding-top: 2vmin;
+    padding-bottom: 2vmin; */
+    margin: 3vmin 3vmin 3vmin 10vmin;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    text-align: initial;
+    flex-direction: row;
+    border-radius: 15px;
+    /* background-color: rgba(0, 0, 17, 0.5); */
+}
+
+.container_pelicula .resenas:hover {
+    box-shadow: none;
+    transform: none;
+}
+
+.container_pelicula .infopelicula {
+    text-align: initial;
+    width: 80vmin;
+    min-width: 300px;
+    /* padding: 0vmin 3vmin 2vmin; */
+    margin: 3vmin 3vmin 0 0;
+    /* background-color: rgba(0, 0, 34, 0.5); */
+    /* border-radius: 15px; */
+}
+
+.container_pelicula .titulopelicula {
+    background-color: rgba(0, 0, 34, 1);;
+    border-radius: 15px;
+    padding: 1vmin 3vmin;
+    margin: 0 0 3vmin 0;
+}
+
+.container_pelicula .fichatecnica {
+    background-color: rgba(0, 0, 34, 0.5);
+    border-radius: 15px;
+    padding: 2vmin 3vmin;
+    margin: 0 0 3vmin 0;
+}
+
+.container_pelicula .sinopsis {
+    display:inline-block;
+    background-color: rgba(0, 0, 34, 0.5);
+    border-radius: 15px;
+    padding: 2vmin 3vmin;
+    margin: 0 0 3vmin 0;
+}
+
+
+.container_pelicula h3 {
+    font-size: 8vmin;
+    margin: 0 0 0 0;
+}
+
+.container_pelicula p {
+    line-height: 120%;
+    margin: 1vmin 0;
+}
